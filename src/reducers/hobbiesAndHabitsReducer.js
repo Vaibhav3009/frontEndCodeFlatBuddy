@@ -1,4 +1,4 @@
-import { ON_HABITS_CHANGE, ON_HOBBIES_CHANGE, ON_BUDGET_CHANGE, ON_LOCATION_CHANGE, ON_USER_LOGIN } from "../actions/types";
+import { ON_HABITS_CHANGE, ON_HOBBIES_CHANGE, ON_BUDGET_CHANGE, ON_LOCATION_CHANGE, ON_USER_LOGIN, ON_GET_RESULT } from "../actions/types";
 const initialState = {
   hobbies:{
     movies: false,
@@ -49,6 +49,11 @@ const hobbiesAndHabitsReducer = (state = initialState, action) =>{
       console.log(payload)
       return {...state, habits,hobbies,budgetMin,budgetMax,location}
 
+    }
+    case (ON_GET_RESULT):{
+      console.log(payload);
+      const {payload:{budgetObject:{budgetMax, budgetMin}, state:{location}}} = payload;
+      return { ...state, budgetMax, budgetMin, location };
     }
     default:
       return state;

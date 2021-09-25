@@ -22,6 +22,11 @@ const Dashboard = (props) =>{
   console.log("state",state)
   const payload = {
     id:localStorage.getItem('userId'),
+    budgetObject:{
+      budgetMin:state.budgetMin,
+      budgetMax:state.budgetMax
+    },
+    location:state.location,
     state:{
       budgetMax:state.budgetMax,
       budgetMin:state.budgetMin,
@@ -51,8 +56,6 @@ writing:state.hobbies.writing,
   
 
   const getResultPage = async() => {
-    console.log("asdasdsadsad")
-
     console.log('payload',payload)
     
     await dispatch(onSubmit(payload))
