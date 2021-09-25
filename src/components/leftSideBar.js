@@ -6,8 +6,7 @@ import { getResults, onBudgetChange,getResultsUpdate} from "../actions/hobbiesAn
 import styles from '../css/leftSideBar.module.css'
 const LeftSideBar = (props) =>{
   const dispatch = useDispatch();
-  const state = useSelector(state => {console.log(state)
-    return(state.hobbiesAndHabits)});
+  const state = useSelector(state => (state.hobbiesAndHabits));
 
     
   const onDataChange = async(e,budgetObject)=>{
@@ -16,15 +15,13 @@ const LeftSideBar = (props) =>{
       budgetObject,
       isOnResult:props.isOnResult,
       id:localStorage.getItem('userId'),
+      location:state.location,
       state
-    }
-    await dispatch(onBudgetChange(payload))
-
-  
-      
+    }      
     if(props.isOnResult){
-      await dispatch(getResultsUpdate(payload))
-
+      await dispatch(getResultsUpdate(payload));
+    }else{
+      await dispatch(onBudgetChange(payload));
     }
   }
   return ( 

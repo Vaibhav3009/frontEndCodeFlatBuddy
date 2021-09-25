@@ -18,7 +18,6 @@ import { onLocationChange } from "../actions/hobbiesAndHabitsAction";
 const Search = (props) => {
   const state = useSelector(state => {
     return(state.hobbiesAndHabits)});
-  const hobbiesAndHabits = useSelector(state => state.hobbiesAndHabits);
   const dispatch = useDispatch();
   const { ready, value, suggestions: { status, data }, setValue, clearSuggestions } = usePlacesAutocomplete({
     requestOptions: {
@@ -36,12 +35,18 @@ const Search = (props) => {
   const handleSelect = async (address) => {
     setValue(address, false);
     clearSuggestions();
-    await dispatch(onLocationChange(address ));
+    // await dispatch(onLocationChange(address ));
     const payload = {
-      state,id:localStorage.getItem('userId')
+      state:{...state, location:address},
+      id:localStorage.getItem('userId'),
+      budgetObject:{
+        budgetMin:state.budgetMin,
+        budgetMax:state.budgetMax
+      }
     }
   if(props.isOnResult){
-    dispatch(getResultsUpdate(payload))
+    console.log(state);
+    dispatch(getResultsUpdate(payload));
 }
 
   };

@@ -54,7 +54,7 @@ export const getResults = dataset  => async dispatch => {
       console.log(data)
       dispatch( {
     type:ON_GET_RESULT,
-    payload:data
+    payload:{data}
   })
     
   }).catch((error)=>{
@@ -64,14 +64,15 @@ export const getResults = dataset  => async dispatch => {
 
   export const getResultsUpdate = payload => async dispatch => {
   
-    console.log("enter")
-      fetch(`https://hackathon-flatbuddy.herokuapp.com/users/${payload.id}/result?budgetMin=${payload.state.budgetMin}&budgetMax=${payload.state.budgetMax}&location=${payload.state.location}`)
+    console.log(payload)
+      fetch(`https://hackathon-flatbuddy.herokuapp.com/users/${payload.id}/result?budgetMin=${payload.budgetObject.budgetMin}&budgetMax=${payload.budgetObject.budgetMax}&location=${payload.state.location}`)
       .then(response => response.json())
       .then( data =>  {
         console.log(data)
+        const payloadObject = {payload, data};
         dispatch( {
       type:ON_GET_RESULT,
-      payload:data
+      payload:payloadObject
     })
       
     }).catch((error)=>{
@@ -99,9 +100,10 @@ export const getResults = dataset  => async dispatch => {
         .then(response => response.json())
         .then( data2 =>  {
           console.log("getResuslts",data2)
+          console.log(payload);
           dispatch( {
         type:ON_GET_RESULT,
-        payload:data2
+        payload:{data:data2, payload}
       })
         
       }).catch((error)=>{
