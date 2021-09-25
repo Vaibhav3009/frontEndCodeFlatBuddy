@@ -1,0 +1,36 @@
+.hobbies {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+}
+.habitContainer {
+  margin-top: 5%;
+  margin-left: 20%;
+}
+.hobbyContainer {
+  margin-top: 5%;
+  margin-left: 20%;
+}
+
+.habits {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.tabs {
+  border: 2px solid #0178db;
+  padding: 4px 8px;
+  width: auto;
+  background: white;
+  border-radius: 16px;
+  margin: 5px;
+}
+.active {
+  background: #0178db;
+  color: white;
+}
+.inactive {
+  background: white;
+  color: #0178db;
+}

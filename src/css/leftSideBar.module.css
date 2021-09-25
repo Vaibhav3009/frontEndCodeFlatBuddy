@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin-left: 5%;
+  margin-top: 15%;
+}
+
+.leftSide {
+  margin-top: 80%;
+}
+.budgetActive {
+  font-weight: bold;
+  cursor: pointer;
+}
+.budgetInActive {
+  font-weight: normal;
+  cursor: pointer;
+}
