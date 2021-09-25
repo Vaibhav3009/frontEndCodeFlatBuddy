@@ -20,7 +20,7 @@ class SignIn extends Component {
  
     componentDidMount(){
         if(localStorage.getItem("user")!=undefined || localStorage.getItem("user")!=null){
-            fetch(`http://localhost:8080/users/email=${this.props.emailId}`)
+            fetch(`https://hackathon-flatbuddy.herokuapp.com/users/email=${this.props.emailId}`)
             .then(response => response.json())
             .then( data =>  {
         
@@ -52,7 +52,7 @@ class SignIn extends Component {
 
 
     
-    fetch(`http://localhost:8080/users/email=${this.state.emailId}`)
+    fetch(`https://hackathon-flatbuddy.herokuapp.com/users/email=${this.state.emailId}`)
     .then(response => response.json())
     .then( data =>  {
         
