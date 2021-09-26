@@ -30,23 +30,35 @@ handleEmail = (e,to_name,to_email,self) => {
    }
  render() {
         const {results} = this.props
+        console.log(this.props)
         
-        console.log(this.props.hobbiesAndHabits)
+        
         return (
             <div>
             {results.map((result,index)=>{
                 return (
                     
                 <div key={index}>
-                <div style={{margin:'5%'}} className="card">
-  <div className="card-header">
+                <div style={{margin:'5%'}} className="card shadow-sm p-3 mb-5 bg-white rounded">
+  <div style = {{backgroundColor:'#D6EEFE'}}className="card-header">
     {result.username}
   </div>
   <div className="card-body">
   <form>
     <h5 className="card-title">Name: {result.name}</h5>
-    <p  className="card-text">Contact: {result.email}</p>
-    <p className="card-text">Location: {result.location}</p>
+    <h5 className="card-text">Contact: {result.email}</h5>
+    <h6>Hobbies</h6>
+    <div className='container'> 
+    <div class="row">
+     {result.hobbies.movies == true ? <button  style ={{width:'inherit',borderRadius:20,backgroundColor:'#0178DB',color:'white',margin:'3px'}} disabled>Movies</button>:null}
+     {result.hobbies.gaming == true ? <button  style ={{width:'inherit',height:'20%',borderRadius:20,backgroundColor:'#0178DB',color:'white',margin:'3px'}} disabled>Gaming</button>:null}
+     {result.hobbies.highVolumeMusic == true ? <button  style ={{width:'inherit',height:'20%',borderRadius:20,backgroundColor:'#0178DB',color:'white',margin:'3px'}} disabled>Loud Music</button>:null}
+     {result.hobbies.photography == true ? <button  style ={{width:'inherit',height:'20%',borderRadius:20,backgroundColor:'#0178DB',color:'white',margin:'3px'}} disabled>Photography</button>:null}
+     {result.hobbies.reading == true ? <button  style ={{width:'inherit',height:'20%',borderRadius:20,backgroundColor:'#0178DB',color:'white',margin:'3px'}} disabled>Reading</button>:null}
+     {result.hobbies.sports == true ? <button  style ={{width:'inherit',height:'20%',borderRadius:20,backgroundColor:'#0178DB',color:'white',margin:'3px'}} disabled>Sports</button>:null}
+     {result.hobbies.writing == true ? <button  style ={{width:'inherit',height:'20%',borderRadius:20,backgroundColor:'#0178DB',color:'white',margin:'3px'}} disabled>Writing</button>:null}
+     </div>
+    </div>
     <a onClick={(e)=>this.handleEmail(e,result.name,result.email,this.props.user.name)} href="#" className="btn btn-primary">Send Email</a>
     </form>
   </div>

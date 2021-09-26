@@ -96,7 +96,7 @@ class SignUp extends Component {
   <input input='password' className='loginpage_text' onChange={(e)=>this.setState({password:e.target.value})} placeholder='Password' type='password'>
 
 </input>
-            <button onClick={this.newSignUp} style={{cursor:'pointer'}} className='login_button'>Sign up </button>
+            <button onClick={this.newSignUp} style={{cursor:'pointer',backgroundColor:'#0178DB',color:'white'}} className='login_button'>Sign up </button>
             </div>
           
             </div>

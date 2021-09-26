@@ -35,18 +35,22 @@ const Search = (props) => {
   const handleSelect = async (address) => {
     setValue(address, false);
     clearSuggestions();
-    // await dispatch(onLocationChange(address ));
+    
     const payload = {
       state:{...state, location:address},
       id:localStorage.getItem('userId'),
       budgetObject:{
         budgetMin:state.budgetMin,
         budgetMax:state.budgetMax
-      }
+      },
+     
     }
   if(props.isOnResult){
     console.log(state);
     dispatch(getResultsUpdate(payload));
+}
+else{
+ await dispatch(onLocationChange(address ));
 }
 
   };

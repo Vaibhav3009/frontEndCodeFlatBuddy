@@ -96,7 +96,7 @@ class SignIn extends Component {
             <input className='loginpage_text' onChange={(e)=>this.setState({password:e.target.value})} placeholder='Enter password' type='password'>
 
             </input>
-            <button style={{cursor:'pointer'}} onClick={this.login} className='login_button'>Log in </button>
+            <button style={{cursor:'pointer',backgroundColor:'#0178DB',color:'white'}} onClick={this.login} className='login_button'>Log in </button>
             </div>
 
             {this.inValid && 

@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import inst_image from '../../images/login.jpg'
 import insta_logo from '../../images/logo.png'
 import './LoginPage.css'
+import '../UserDetails/UserDetails.css'
 import SignIn from '../SignIn/SignIn'
 import SignUp from '../SignUp/SignUp'
 class LoginPage extends Component {
@@ -19,16 +20,14 @@ class LoginPage extends Component {
     }
     render() {
         return (    
-            <div style={{display:'flex',flexDirection:'column',flexWrap:'wrap'}}>
-               <Grid container direction='column' justifyContent="center"
-  alignItems="center">
-                   <Grid item lg={2} md={3}></Grid>
-                   <Grid item lg={8} md={6}>
-                    <div className='loginPage_main'>
-                        <div style={{marginTop: 100 + 'px', marginRight: 30 + 'px'}}>
-                        <img src={inst_image} width='410px' height='420px'></img>
-                        </div>
-                        <div className='rightComponent'> 
+            <div class="container-fluid ">
+            <div  class="row main-content bg-success text-center ">
+                <div class="col-md-5 text-center company__info noPadding">
+                    
+                    <img height='100%' style={{borderTopLeftRadius:'20px',borderBottomLeftRadius:'20px'}} src={inst_image}/>
+                </div>
+                
+                <div class="col-md-7 col-xs-12 col-sm-12 login_form ">
                         <img className='loginPage_logo' src={insta_logo}></img>
                       {/* <SignIn/> */}
                       {this.state.isLogin?<SignIn />: <SignUp/>}
@@ -38,13 +37,11 @@ class LoginPage extends Component {
                <p>Don't have an account?<span onClick={()=>this.handleChange()} style={{color:'#5EA9F7',fontWeight:'bold',cursor:'pointer'}}> Sign up</span></p>
            </div>}
                       </div>
-                    </div>
+                    
                     
 
 
-                   </Grid>
-                   <Grid item lg={2} md={3}></Grid>
-               </Grid> 
+            </div>
             </div>
         )
     }

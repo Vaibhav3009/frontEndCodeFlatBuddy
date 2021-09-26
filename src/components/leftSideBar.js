@@ -10,6 +10,7 @@ const LeftSideBar = (props) =>{
 
     
   const onDataChange = async(e,budgetObject)=>{
+    console.log(state )
     e.preventDefault()
     const payload = {
       budgetObject,
