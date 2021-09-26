@@ -26,10 +26,10 @@ const LeftSideBar = (props) =>{
     }
   }
   return ( 
-      <div>
+    <div className="card" style={{height: '60vh',borderRadius: '5vh', justifyContent:'center'}}>
         <Search isOnResult={props.isOnResult} />
         <div>
-          <h4>Budget</h4>
+          <h4 style={{marginTop:'10%'}}>Budget</h4>
          {
            BudgetRange.map((budgetObject, index)=>(
            <div className={`${state.budgetMin === budgetObject.budgetMin ? styles.budgetActive : styles.budgetInActive}`} key = {index} onClick={(e)=>onDataChange(e,budgetObject) }>

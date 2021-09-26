@@ -17,3 +17,8 @@
   font-weight: normal;
   cursor: pointer;
 }
+
+.leftWidget{
+  height: 100%;
+  border-radius: 5%;
+}
